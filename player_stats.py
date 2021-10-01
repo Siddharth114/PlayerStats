@@ -11,6 +11,7 @@ st.markdown("""
 This app performs webscraping of Premier League player stats
 * **Python libraries:** base64, pandas, streamlit
 * **Data source:** [Football-reference.com](https://www.fbref.com/)
+* Send feedback [here](https://forms.gle/gZiJrreEoNPVdh7L9)
 """)
 
 st.sidebar.header('User Input Features')
