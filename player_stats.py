@@ -15,10 +15,11 @@ This app performs webscraping of Premier League player stats
 """)
 
 st.sidebar.header('User Input Features')
-selected_year = st.sidebar.selectbox('Season', list(((f'{i-1}-{i}' for i in range(2021,2010,-1)))))
+selected_year = st.sidebar.selectbox('Season', list(((f'{i-1}-{i}' for i in range(2022,2010,-1)))))
 
 
 years = {
+    '2021':'https://fbref.com/en/share/AqYHp',
     '2020':'https://fbref.com/en/share/9oKEZ',
     '2019':'https://fbref.com/en/share/rPWzg',
     '2018':'https://fbref.com/en/share/U0Nlp',
