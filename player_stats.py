@@ -19,30 +19,34 @@ selected_year = st.sidebar.selectbox('Season', list(((f'{i-1}-{i}' for i in rang
 
 
 years = {
-    '2020':'https://widgets.sports-reference.com/wg.fcgi?css=1&site=fb&url=%2Fen%2Fcomps%2F9%2F10728%2Fstats%2F2020-2021-Premier-League-Stats&div=div_stats_standard',
-    '2019':'https://widgets.sports-reference.com/wg.fcgi?css=1&site=fb&url=%2Fen%2Fcomps%2F9%2F3232%2Fstats%2F2019-2020-Premier-League-Stats&div=div_stats_standard',
-    '2018':'https://widgets.sports-reference.com/wg.fcgi?css=1&site=fb&url=%2Fen%2Fcomps%2F9%2F1889%2Fstats%2F2018-2019-Premier-League-Stats&div=div_stats_standard',
-    '2017':'https://widgets.sports-reference.com/wg.fcgi?css=1&site=fb&url=%2Fen%2Fcomps%2F9%2F1631%2Fstats%2F2017-2018-Premier-League-Stats&div=div_stats_standard',
-    '2016':'https://widgets.sports-reference.com/wg.fcgi?css=1&site=fb&url=%2Fen%2Fcomps%2F9%2F1526%2Fstats%2F2016-2017-Premier-League-Stats&div=div_stats_standard',
-    '2015':'https://widgets.sports-reference.com/wg.fcgi?css=1&site=fb&url=%2Fen%2Fcomps%2F9%2F733%2Fstats%2F2014-2015-Premier-League-Stats&div=div_stats_standard',
-    '2014':'https://widgets.sports-reference.com/wg.fcgi?css=1&site=fb&url=%2Fen%2Fcomps%2F9%2F733%2Fstats%2F2014-2015-Premier-League-Stats&div=div_stats_standard',
-    '2013':'https://widgets.sports-reference.com/wg.fcgi?css=1&site=fb&url=%2Fen%2Fcomps%2F9%2F669%2Fstats%2F2013-2014-Premier-League-Stats&div=div_stats_standard',
-    '2012':'https://widgets.sports-reference.com/wg.fcgi?css=1&site=fb&url=%2Fen%2Fcomps%2F9%2F602%2Fstats%2F2012-2013-Premier-League-Stats&div=div_stats_standard',
-    '2011':'https://widgets.sports-reference.com/wg.fcgi?css=1&site=fb&url=%2Fen%2Fcomps%2F9%2F534%2Fstats%2F2011-2012-Premier-League-Stats&div=div_stats_standard',
-    '2010':'https://widgets.sports-reference.com/wg.fcgi?css=1&site=fb&url=%2Fen%2Fcomps%2F9%2F467%2Fstats%2F2010-2011-Premier-League-Stats&div=div_stats_standard'
+    '2020':'https://fbref.com/en/share/9oKEZ',
+    '2019':'https://fbref.com/en/share/rPWzg',
+    '2018':'https://fbref.com/en/share/U0Nlp',
+    '2017':'https://fbref.com/en/share/2D44U',
+    '2016':'https://fbref.com/en/share/1Dif9',
+    '2015':'https://fbref.com/en/share/HGohy',
+    '2014':'https://fbref.com/en/share/JYfNm',
+    '2013':'https://fbref.com/en/share/SVvhs',
+    '2012':'https://fbref.com/en/share/0Eo8N',
+    '2011':'https://fbref.com/en/share/I5iuO',
+    '2010':'https://fbref.com/en/share/ued5k'
 }
 
-@st.cache
+@st.cache_data
 def load_data(year):
     url = years[year[:year.index('-')]]
     html = pd.read_html(url)
     df = html[0]
-    df = df.drop(['Per 90 Minutes'], axis=1)
-    df.columns = df.columns.map(lambda x : x[1])
-    index_names = df[df['Player']=='Player'].index
-    raw = df.drop(labels=index_names,axis=0)
-    raw = raw.reset_index()
-    raw = raw.drop(['index'],axis=1)
+    df = df.drop(['Per 90 Minutes'], axis=1, level=0)
+    df = df.drop(['Progression'], axis=1, level=0)
+    df.columns = df.columns.droplevel(0)
+    # df.columns = df.columns.map(lambda x : x[1])
+    # index_names = df[df['Player']=='Player'].index
+    # raw = df.drop(labels=index_names,axis=0)
+    # raw = raw.reset_index()
+    raw=df
+    print(raw.head)
+    # raw = raw.drop(['index'],axis=1)
     raw['Nation'] = raw['Nation'].apply(lambda x: (x.split(' '))[-1])
     raw = raw.drop(['Matches'],axis=1)
     playerstats = raw.drop(['Rk'], axis=1)
