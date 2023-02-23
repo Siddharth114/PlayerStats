@@ -41,12 +41,10 @@ def load_data(year):
     df = df.drop(['Progression'], axis=1, level=0)
     df.columns = df.columns.droplevel(0)
     # df.columns = df.columns.map(lambda x : x[1])
-    # index_names = df[df['Player']=='Player'].index
-    # raw = df.drop(labels=index_names,axis=0)
-    # raw = raw.reset_index()
-    raw=df
-    print(raw.head)
-    # raw = raw.drop(['index'],axis=1)
+    index_names = df[df['Player']=='Player'].index
+    raw = df.drop(labels=index_names,axis=0)
+    raw = raw.reset_index()
+    raw = raw.drop(['index'],axis=1)
     raw['Nation'] = raw['Nation'].apply(lambda x: (x.split(' '))[-1])
     raw = raw.drop(['Matches'],axis=1)
     playerstats = raw.drop(['Rk'], axis=1)
