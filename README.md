@@ -1,4 +1,4 @@
-# Premier League Player Stats Explorer
+# StatStriker
 
 ## [Website Link](https://siddharth114-playerstats-player-stats-bqztwc.streamlit.app/)
 
@@ -6,7 +6,7 @@
 
 ### This app performs webscraping of Premier League player statistics. The statistics of players are taken from Football-reference.com.
 
-![Screenshot 2023-02-23 at 10 57 02 AM](https://user-images.githubusercontent.com/90757474/220827748-b888c2bd-628c-445d-8023-9ec5aa61d158.jpg)
+![image](https://github.com/Siddharth114/PlayerStats/assets/90757474/407e442d-bb64-4de8-9aa5-90af3fdd5c96)
 
 ---
 
