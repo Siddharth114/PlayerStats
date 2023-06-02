@@ -5,10 +5,19 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
-st.title('Premier League Player Stats Explorer')
+st.title('StatStriker')
+
+st.markdown('''Ready, set, data! Welcome to StatStriker, the ultimate MVP (Most Valuable Platform) for Premier League fanatics and number-crunching 
+aficionados. We've assembled an all-star team of scrapers and analysts to fetch the juiciest stats from your favorite football players.
+ With a dash of algorithmic wizardry, we transform this data into a mesmerizing tabulation that would make even the most seasoned coach blush. ''')
+
+st.markdown('''But wait, there's more! Brace yourself for our intercorrelation heatmap, a sizzling visual feast that unveils the hidden connections
+ between each statistic. Prepare to dive deep into the beautiful game's analytical depths, where stats reign supreme and strategists thrive.
+   It's time to play ball with numbers like never before!''')
+
+
 
 st.markdown("""
-This app performs webscraping of Premier League player stats
 * **Python libraries:** base64, pandas, streamlit
 * **Data source:** [Football-reference.com](https://www.fbref.com/)
 * Send feedback [here](https://forms.gle/gZiJrreEoNPVdh7L9)
