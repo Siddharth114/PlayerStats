@@ -20,6 +20,7 @@ Built with:
 * Streamlit
 * Pandas
 * Base64
+---
 
 ![image](https://github.com/Siddharth114/PlayerStats/assets/90757474/407e442d-bb64-4de8-9aa5-90af3fdd5c96)
 
