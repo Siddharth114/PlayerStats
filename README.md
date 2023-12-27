@@ -4,7 +4,22 @@
 
 ---
 
-### This app performs webscraping of Premier League player statistics. The statistics of players are taken from Football-reference.com.
+Unlock the analytical depths of the Premier League with StatStriker, a web app designed to empower football enthusiasts and data analysts alike. Explore player statistics, uncover hidden connections, and dive deep into the beautiful game's numerical tapestry.
+
+---
+Key Features:
+
+* Mesmerizing Player Stats Tabulation: View comprehensive player statistics presented in a clear and insightful format.
+* Intercorrelation Heatmap: Visualize the relationships between different statistics, revealing hidden patterns and insights.
+* Data Fetched from Football-Reference.com: Access reliable and up-to-date data from a trusted source.
+
+---
+Built with:
+
+* Python
+* Streamlit
+* Pandas
+* Base64
 
 ![image](https://github.com/Siddharth114/PlayerStats/assets/90757474/407e442d-bb64-4de8-9aa5-90af3fdd5c96)
 
